@@ -1,3 +1,5 @@
+/* eslint global-require: 0 */
+
 import createHistory from 'history/createBrowserHistory';
 import { applyMiddleware, createStore, compose } from 'redux';
 import { routerMiddleware } from 'react-router-redux';
@@ -8,12 +10,19 @@ export const history = createHistory();
 const middleware = routerMiddleware(history);
 
 export function configureStore(initialState) {
-    return createStore(
-        rootReducer,
-        initialState,
-        compose(
-            applyMiddleware(middleware),
-            DevTools.instrument()
-        )
-    );
+  const store = createStore(
+    rootReducer,
+    initialState,
+    compose(applyMiddleware(middleware), DevTools.instrument()),
+  );
+
+  if (module.hot) {
+    // Enable Webpack hot module replacement for reducers
+    module.hot.accept('../reducers', () => {
+      const nextRootReducer = require('../reducers');
+      store.replaceReducer(nextRootReducer);
+    });
+  }
+
+  return store;
 }
