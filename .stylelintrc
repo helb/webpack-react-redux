@@ -1,0 +1,9 @@
+{
+    "extends": "stylelint-config-standard",
+    "syntax": "scss",
+    "rules": {
+        "indentation": 2,
+        "unit-whitelist": ["px", "em", "rem", "vh", "vw", "%", "s"],
+        "rule-empty-line-before": null
+    }
+}

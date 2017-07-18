@@ -7,7 +7,7 @@
     "test": "",
     "start": "node server",
     "build": "rimraf dist && webpack --config ./webpack.production.config.js --progress --profile --colors",
-    "eslint": "eslint ."
+    "lint": "eslint .; stylelint app/**/*.scss"
   },
   "keywords": [
     "es6",
@@ -57,6 +57,8 @@
     "sass-loader": "^6.0.6",
     "stats-webpack-plugin": "^0.6.1",
     "style-loader": "^0.18.2",
+    "stylelint": "^8.0.0",
+    "stylelint-config-standard": "^17.0.0",
     "url-loader": "^0.5.7",
     "webpack": "^3.3.0",
     "webpack-dev-server": "^2.5.1"
