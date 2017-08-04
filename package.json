@@ -14,6 +14,10 @@
     "react",
     "redux"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jpsierens/webpack-react-redux.git"
+  },
   "author": "Jean-Pierre Sierens",
   "license": "MIT",
   "dependencies": {
